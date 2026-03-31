@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  chatbot:
+    build: .
+    container_name: aarogya-chatbot
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+    environment:
+      - PYTHONUNBUFFERED=1
+      - SECRET_KEY=your-very-secure-secret-key-for-aarogyaone
+    # You can add volumes here if you want to persist data
+    volumes:
+      - .:/app
