@@ -1,5 +1,5 @@
 from fastapi.testclient import TestClient
-from main import app
+from bot.main import app
 import time
 
 client = TestClient(app)

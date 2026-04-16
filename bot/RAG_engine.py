@@ -10,20 +10,64 @@ from pathlib import Path
 
 
 class RAGEngine:
-    def __init__(self, knowledge_base_path="knowledge_base.json"):
+    def __init__(self, knowledge_base_path="knowledge_base.json", use_multiple_files=True):
+        """
+        Initialize RAG Engine
+        
+        Args:
+            knowledge_base_path: Path to knowledge base file/folder
+            use_multiple_files: If True, load from folder with multiple JSON files
+                               If False, load from single JSON file
+        """
         self.documents = []
         self.tfidf_matrix = []
         self.vocabulary = {}
         self.idf_scores = {}
-        self._load_knowledge_base(knowledge_base_path)
+        
+        if use_multiple_files:
+            self._load_knowledge_base_folder(knowledge_base_path)
+        else:
+            self._load_knowledge_base_single(knowledge_base_path)
+        
         self._build_tfidf_index()
 
-    def _load_knowledge_base(self, path):
+    def _load_knowledge_base_single(self, path):
+        """Load knowledge base from a single JSON file"""
         kb_path = Path(__file__).parent / path
         with open(kb_path, "r", encoding="utf-8") as f:
             data = json.load(f)
         self.documents = data["documents"]
-        print(f"[RAG] Loaded {len(self.documents)} documents into knowledge base.")
+        print(f"[RAG] Loaded {len(self.documents)} documents from single file: {path}")
+
+    def _load_knowledge_base_folder(self, folder_path):
+        """Load knowledge base from multiple JSON files in a folder"""
+        kb_folder = Path(__file__).parent / folder_path
+        
+        # If folder doesn't exist, try loading as single file
+        if not kb_folder.is_dir():
+            print(f"[RAG] Folder not found: {kb_folder}. Trying as single file...")
+            self._load_knowledge_base_single(folder_path)
+            return
+        
+        # Load all *_base.json files
+        self.documents = []
+        loaded_files = 0
+        
+        for json_file in sorted(kb_folder.glob("*_base.json")):
+            try:
+                with open(json_file, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+                    if "documents" in data:
+                        self.documents.extend(data["documents"])
+                        loaded_files += 1
+                        print(f"[RAG] Loaded {len(data['documents'])} docs from {json_file.name}")
+            except Exception as e:
+                print(f"[RAG] Error loading {json_file.name}: {e}")
+        
+        if loaded_files == 0:
+            raise FileNotFoundError(f"No *_base.json files found in {kb_folder}")
+        
+        print(f"[RAG] Total {len(self.documents)} documents loaded from {loaded_files} files")
 
     def _tokenize(self, text):
         """Lowercase and tokenize text"""
@@ -41,6 +85,8 @@ class RAGEngine:
 
         for doc in self.documents:
             combined = doc["title"] + " " + doc["content"]
+            if "keywords" in doc:
+                combined += " " + doc["keywords"]
             tokens = self._tokenize(combined)
             doc_tokens.append(tokens)
             all_tokens.extend(tokens)
@@ -102,17 +148,58 @@ class RAGEngine:
 
         return tfidf_vector
 
-    def retrieve(self, query, top_k=3, category_filter=None):
-        """Retrieve top-k most relevant documents for a query"""
+    def _keyword_filter(self, query, min_keyword_match=1):
+        """Filter documents that contain at least min_keyword_match keywords"""
+        query_tokens = set(self._tokenize(query))
+        filtered_indices = []
+        
+        for idx, doc in enumerate(self.documents):
+            doc_text = (doc["title"] + " " + doc["content"]).lower()
+            if "keywords" in doc:
+                doc_text += " " + doc["keywords"].lower()
+            doc_tokens = set(self._tokenize(doc_text))
+            
+            # Count matching keywords
+            matching_keywords = len(query_tokens & doc_tokens)
+            
+            if matching_keywords >= min_keyword_match:
+                filtered_indices.append(idx)
+        
+        return filtered_indices
+
+    def retrieve(self, query, top_k=3, category_filter=None, use_keyword_filter=False):
+        """Retrieve top-k most relevant documents for a query
+        
+        Args:
+            query: User's search query
+            top_k: Number of top results to return
+            category_filter: Optional category to filter by
+            use_keyword_filter: If True, pre-filter documents using keyword matching
+        """
         query_vector = self._query_to_tfidf(query)
 
+        # STEP 1: Pre-filter by keywords (if enabled)
+        if use_keyword_filter:
+            filtered_indices = self._keyword_filter(query)
+            if not filtered_indices:
+                # If no keyword match, fall back to TF-IDF only
+                filtered_indices = list(range(len(self.documents)))
+        else:
+            filtered_indices = list(range(len(self.documents)))
+
+        # STEP 2: Score filtered documents with TF-IDF
         scored_docs = []
-        for idx, (doc, doc_vector) in enumerate(zip(self.documents, self.tfidf_matrix)):
+        for idx in filtered_indices:
+            doc = self.documents[idx]
+            doc_vector = self.tfidf_matrix[idx]
+            
             if category_filter and doc["category"] != category_filter:
                 continue
+            
             score = self._cosine_similarity(query_vector, doc_vector)
             scored_docs.append((score, doc))
 
+        # STEP 3: Sort and return top results
         scored_docs.sort(key=lambda x: x[0], reverse=True)
         top_docs = [(score, doc) for score, doc in scored_docs[:top_k] if score > 0]
 

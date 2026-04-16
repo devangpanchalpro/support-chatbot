@@ -1,0 +1,40 @@
+{
+  "documents": [
+    {
+      "id": "abha_001",
+      "category": "abha",
+      "title": "What is ABHA Card?",
+      "content": "ABHA stands for Ayushman Bharat Health Account. It is a 14-digit unique health ID for every Indian citizen. ABHA card stores all your health records digitally. It is part of the Ayushman Bharat Digital Mission (ABDM). You can use ABHA to share health records with doctors and hospitals easily."
+    },
+    {
+      "id": "abha_002",
+      "category": "abha",
+      "title": "How to create ABHA Card?",
+      "content": "To create ABHA card, visit the official website abdm.gov.in or use the ABHA app. You can register using your Aadhaar card or driving license or mobile number. Enter your Aadhaar number and verify with OTP sent to your mobile. Fill in personal details like name, date of birth, gender. Your 14-digit ABHA number will be generated instantly. You can download the ABHA card as PDF or image."
+    },
+    {
+      "id": "abha_003",
+      "category": "abha",
+      "title": "How to download ABHA Card?",
+      "content": "To download ABHA card, go to abdm.gov.in or open the ABHA mobile app. Login using your ABHA number or mobile number with OTP verification. Go to My Profile section and click on Download Card. Your ABHA card will be downloaded as a PDF file. You can also download it from the AarogyaOne PHR app after linking your ABHA account."
+    },
+    {
+      "id": "abha_004",
+      "category": "abha",
+      "title": "ABHA Card benefits",
+      "content": "ABHA card provides many benefits to patients. It gives a unique health identity to every citizen. All medical records prescriptions lab reports are stored digitally. Doctors can access your health history with your consent. It reduces need to carry physical documents to hospitals. ABHA is free of cost for all Indian citizens. It works across all hospitals and health facilities in India."
+    },
+    {
+      "id": "abha_005",
+      "category": "abha",
+      "title": "AADHAAR OTP Issue",
+      "content": "If you are not receiving OTP for ABHA creation, check your mobile number is correct and has good network. Ensure your Aadhaar is linked to the mobile number. Try after some time or use different mobile number if available. Contact UIDAI helpline at 1947 for Aadhaar related issues. You can also visit nearest Aadhaar center for assistance."
+    },
+    {
+      "id": "abha_006",
+      "category": "abha",
+      "title": "Other ABHA Issues",
+      "content": "For other ABHA related issues like account recovery, profile update, or technical problems, visit abdm.gov.in and login to your account. You can update your profile information, change mobile number, or reset password. Contact ABDM helpline at 1800-11-4477 for assistance. For app related issues, check for updates on Google Play Store."
+    }
+  ]
+}

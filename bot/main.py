@@ -1,7 +1,7 @@
 from fastapi import FastAPI, Depends
-import auth
-from chatbot import AarogyaChatbot
-from schemas import ChatQuery
+from . import auth
+from .chatbot import AarogyaChatbot, INITIAL_GREETING
+from .schemas import ChatQuery
 
 app = FastAPI(
     title="AarogyaOne Support API",
@@ -35,6 +35,16 @@ def chat_endpoint(
     """
     response = bot.chat(query.message)
     return {"response": response, "status": "success"}
+
+
+# ─── START MESSAGE (GREETING) ────────────────────────
+@app.get("/start", tags=["Bot"])
+def start_endpoint():
+    """
+    ### Get Initial Start Message
+    Call this when the UI loads to show the language selection greeting.
+    """
+    return {"response": INITIAL_GREETING, "status": "success"}
 
 
 # ─── HEALTH CHECK ────────────────────────────────────

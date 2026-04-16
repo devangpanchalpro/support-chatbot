@@ -1,0 +1,28 @@
+{
+  "documents": [
+    {
+      "id": "covid_001",
+      "category": "covid",
+      "title": "What is COVID vaccination certificate?",
+      "content": "COVID-19 vaccination certificate is a digital proof of vaccination. It is issued by the Government of India through CoWIN platform. Certificate contains your name, date of birth, vaccine name, dose number, vaccination date, beneficiary ID. It is internationally recognized for travel purposes. Both partial vaccination one dose and full vaccination two doses certificates are issued."
+    },
+    {
+      "id": "covid_002",
+      "category": "covid",
+      "title": "How to download COVID vaccination certificate?",
+      "content": "To download COVID certificate visit cowin.gov.in official website. Click on Register or Sign In option. Enter your registered mobile number and OTP. Your vaccination details will appear on screen. Click on Download Certificate button. Certificate will be downloaded as PDF. You can also download from UMANG app or DigiLocker app. Aarogya Setu app also provides certificate download option."
+    },
+    {
+      "id": "covid_003",
+      "category": "covid",
+      "title": "COVID certificate lost or not received",
+      "content": "If you have not received your COVID certificate or lost it you can redownload it from CoWIN portal. Visit cowin.gov.in and login with your registered mobile number. If mobile number changed you can raise a correction request. Contact your vaccination center with your beneficiary ID. You can also contact the CoWIN helpline at 1075 for assistance. Certificate correction requests can be raised on the portal."
+    },
+    {
+      "id": "covid_004",
+      "category": "covid",
+      "title": "Other COVID Issues",
+      "content": "For other COVID vaccination certificate issues like name correction, date correction, or duplicate certificates, visit cowin.gov.in. Login to your account and raise correction request. Contact CoWIN helpline at 1075 for assistance. You can also visit nearest vaccination center or use Aarogya Setu app for certificate related queries."
+    }
+  ]
+}

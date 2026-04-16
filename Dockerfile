@@ -14,12 +14,13 @@ COPY requirements.txt .
 # Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy ALL application files
-COPY main.py chatbot.py RAG_engine.py knowledge_base.json ./
-COPY auth.py schemas.py .env ./
+# Copy folders
+COPY bot/ bot/
+COPY data/ data/
+COPY .env ./
 
 # Expose the port FastAPI will run on
 EXPOSE 8000
 
 # Command to run the application
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "bot.main:app", "--host", "0.0.0.0", "--port", "8000"]

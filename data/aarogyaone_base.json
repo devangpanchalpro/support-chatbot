@@ -1,0 +1,46 @@
+{
+  "documents": [
+    {
+      "id": "aarogya_001",
+      "category": "aarogyaone",
+      "title": "What is AarogyaOne PHR app?",
+      "content": "AarogyaOne PHR is a Personal Health Record application. It is developed by JDeanZ Healthtech. The app helps you store and manage all your health records digitally. You can link your ABHA account with AarogyaOne. It is available on Google Play Store. AarogyaOne helps you maintain complete medical history in one place. It is ABDM compliant and follows government health data standards."
+    },
+    {
+      "id": "aarogya_002",
+      "category": "aarogyaone",
+      "title": "How to upload documents in AarogyaOne?",
+      "content": "To upload documents in AarogyaOne app open the app on your phone. Login with your registered mobile number. Go to My Health Records section in the bottom menu. Tap on the plus button or Upload Document. Select document type like prescription, lab report, discharge summary. You can take a photo of the document or choose from gallery. Add document date and doctor name. Tap Save to upload the document to your health record."
+    },
+    {
+      "id": "aarogya_003",
+      "category": "aarogyaone",
+      "title": "How to book appointment in AarogyaOne?",
+      "content": "To book appointment in AarogyaOne PHR app open the app on your phone. Go to Doctor section available at the home page. Search for doctors by doctor name and specialization. Once you find your preferred doctor click on book consultation. Choose your convenient date and time slot for the appointment. You can also change the patient profile to book an appointment for your family member. After confirming the appointment details you will receive confirmation on your registered mobile number. You can view and manage all your appointments from the app."
+    },
+    {
+      "id": "aarogya_004",
+      "category": "aarogyaone",
+      "title": "How to link ABHA with AarogyaOne PHR app?",
+      "content": "To link your ABHA with the AarogyaOne PHR app, follow these steps:\n\n1. **Login**: Open the AarogyaOne app and login with your Aadhaar card or mobile number.\n\n2. **Enter OTP**: Verify your identity by entering the OTP sent to your registered mobile number or Aadhaar-linked number.\n\n3. **Enter Mobile Number (if using Aadhaar)**: If you logged in with your Aadhaar card, enter your mobile number for verification.\n\n4. **Check Your Details**: Review the details displayed on screen to ensure they are correct (name, date of birth, address, etc.).\n\n5. **Confirm and Continue**: If all details are correct, proceed to the next step.\n\n6. **ABHA Linked Successfully**: Your ABHA will be successfully linked with the AarogyaOne app.\n\n7. **Link Documents with ABHA**: To link any documents (prescriptions, lab reports, etc.) with your ABHA card:\n   - Go to the Records section in the app\n   - Upload your document\n   - Click on the 'Link with ABHA' button\n   - Your document will be successfully linked with your ABHA"
+    },
+    {
+      "id": "aarogya_005",
+      "category": "aarogyaone",
+      "title": "How to view health records in AarogyaOne?",
+      "content": "To view health records in AarogyaOne open the app and login. Go to My Health Records from home screen or bottom menu. You can see all uploaded documents prescriptions lab reports. Filter records by type date or doctor. Tap on any record to view it in full. You can share health records with doctors using consent mechanism. Records are stored securely and encrypted for your privacy."
+    },
+    {
+      "id": "aarogya_006",
+      "category": "aarogyaone",
+      "title": "How to download AarogyaOne App?",
+      "content": "To download AarogyaOne PHR app, visit Google Play Store on your Android phone. Search for 'AarogyaOne' or 'AarogyaOne PHR'. Click on the app developed by JDeanZ Healthtech. Tap on Install button. The app is free to download and use. After installation, register with your mobile number to start using the app."
+    },
+    {
+      "id": "aarogya_007",
+      "category": "aarogyaone",
+      "title": "Other AarogyaOne Issues",
+      "content": "For other AarogyaOne app issues like login problems, password reset, or technical support, contact the app support team. Email support@jdeanzhealthtech.com or call customer care. You can also check for app updates on Google Play Store. For account related issues, visit the app settings and reset your profile if needed."
+    }
+  ]
+}

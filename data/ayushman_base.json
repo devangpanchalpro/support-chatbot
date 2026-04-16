@@ -1,0 +1,35 @@
+{
+  "documents": [
+    {
+      "id": "ayushman_001",
+      "category": "ayushman",
+      "title": "What is Ayushman Bharat Card?",
+      "content": "Ayushman Bharat Pradhan Mantri Jan Arogya Yojana or PMJAY is a health insurance scheme. It provides health coverage of Rs 5 lakh per family per year. It covers poor and vulnerable families across India. Ayushman card is the golden card for accessing free treatment. Over 50 crore people are covered under this scheme. It covers pre and post hospitalization expenses."
+    },
+    {
+      "id": "ayushman_002",
+      "category": "ayushman",
+      "title": "How to get Ayushman Card?",
+      "content": "To get Ayushman card first check your eligibility on pmjay.gov.in. Enter your mobile number and OTP to check if your family is eligible. Visit nearest Common Service Centre or Ayushman Mitra at empanelled hospital. Bring your Aadhaar card and ration card. Biometric verification will be done. Your Ayushman golden card will be issued on the spot or within a few days."
+    },
+    {
+      "id": "ayushman_003",
+      "category": "ayushman",
+      "title": "How to download Ayushman Card?",
+      "content": "To download Ayushman Bharat card visit the official website pmjay.gov.in. Click on Am I Eligible to check your status first. Login to the beneficiary portal with your mobile number. Enter OTP for verification. Go to Download Card option. Enter your Ayushman card number or Aadhaar number. Your Ayushman card will be downloaded as PDF. You can also visit your nearest CSC centre for help."
+    },
+    {
+      "id": "ayushman_004",
+      "category": "ayushman",
+      "title": "Ayushman Card (PMJAY) benefits and coverage",
+      "keywords": "fayda fayde benifits coverages benefit faida faide pmjay",
+      "content": "PMJAY (Ayushman Bharat) card covers Rs 5 lakh health insurance per family per year. It covers over 1500 treatment procedures and surgeries. Coverage includes pre-hospitalization 3 days and post-hospitalization 15 days. It covers all pre-existing diseases from day one. There are over 25000 empanelled hospitals across India. Treatment is cashless at government and private hospitals. Covers ICU charges, medicines, surgery, diagnostic tests."
+    },
+    {
+      "id": "ayushman_005",
+      "category": "ayushman",
+      "title": "Other Ayushman Issues",
+      "content": "For other Ayushman Bharat issues like claim rejection, hospital empanelment, or policy related queries, visit pmjay.gov.in. Contact helpline at 14555 for assistance. You can check claim status, find empanelled hospitals, or raise grievances. For family member addition or card renewal, visit nearest CSC center or Ayushman Mitra."
+    }
+  ]
+}

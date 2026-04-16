@@ -13,3 +13,4 @@ services:
     # You can add volumes here if you want to persist data
     volumes:
       - .:/app
+      
