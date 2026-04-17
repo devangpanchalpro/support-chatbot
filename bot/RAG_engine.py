@@ -221,3 +221,7 @@ class RAGEngine:
             })
 
         return answers[0]["content"] if answers else None, answers
+
+    def get_all_documents_by_category(self, category):
+        """Get all document titles for a specific category"""
+        return [doc for doc in self.documents if doc.get("category") == category]
