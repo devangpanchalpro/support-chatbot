@@ -1,20 +1,33 @@
-# Use a lightweight Python base image
-FROM python:3.12-slim
+# Build stage
+FROM python:3.12-alpine AS builder
 
-# Set working directory inside the container
 WORKDIR /app
 
-# Prevent Python from writing .pyc files and enable unbuffered logging
-ENV PYTHONDONTWRITEBYTECODE=1
-ENV PYTHONUNBUFFERED=1
+# Install build dependencies required for compiling some Python packages
+RUN apk add --no-cache build-base libffi-dev
 
-# Copy requirements file first to leverage Docker cache
+# Create a virtual environment
+RUN python -m venv /opt/venv
+ENV PATH="/opt/venv/bin:$PATH"
+
+# Copy requirements and install dependencies
 COPY requirements.txt .
-
-# Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy folders
+# Final stage
+FROM python:3.12-alpine
+
+WORKDIR /app
+
+# Copy the virtual environment from the builder stage
+COPY --from=builder /opt/venv /opt/venv
+ENV PATH="/opt/venv/bin:$PATH"
+
+# Prevent Python from writing .pyc files and enable unbuffered logging
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1
+
+# Copy application files
 COPY bot/ bot/
 COPY data/ data/
 COPY .env ./
